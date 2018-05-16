@@ -16,7 +16,9 @@ Makefile.in
 *.pidb
 *.userprefs
 *.usertasks
-config.log
+appsettings.json
+appsettings.Development.json
+config.logs
 config.make
 config.status
 aclocal.m4
