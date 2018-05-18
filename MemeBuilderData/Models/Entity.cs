@@ -6,8 +6,8 @@ namespace MemeBuilderData.Models
     public abstract class Entity
     {
         protected Entity()
-            => Id = GuidComb.GenerateComb().ToString();
+            => Id = GuidComb.GenerateComb();
 
-        public string Id { get; set; }
+        public Guid Id { get; private set; }
     }
 }

@@ -12,6 +12,6 @@
     <Folder Include="Implementations\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.0.2" />
   </ItemGroup>
 </Project>

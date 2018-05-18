@@ -15,4 +15,12 @@
   <ItemGroup>
     <ProjectReference Include="..\MemeBuilderData\MemeBuilderData.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="appsettings.json" />
+    <Content Remove="appsettings.Development.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="appsettings.json" />
+    <None Include="appsettings.Development.json" />
+  </ItemGroup>
 </Project>

@@ -24,6 +24,7 @@ config.status
 aclocal.m4
 install-sh
 autom4te.cache/
+*.vs
 *.user
 *.tar.gz
 tarballs/

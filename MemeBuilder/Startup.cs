@@ -26,7 +26,7 @@ namespace MemeBuilder
             services.AddMvc();
 
             services.AddDbContext<MemeBuilderContext>(
-                options => options.UseMySQL(
+                options => options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")
                 )
             );
