@@ -19,7 +19,22 @@ namespace MemeBuilder.Controllers
         public TemplateController(MemeBuilderContext context) 
             => Context = context;
 
-        // GET: /<controller>/
+        [HttpGet("{id:guid}")]
+        public IActionResult GetTemplate(Guid id)
+        {
+            var template = Context.Template.Find(id);
+
+            return Ok(template);
+        }
+
+        [HttpGet]
+        public IActionResult GetTemplates()
+        {
+            var templates = Context.Template.ToList();
+
+            return Ok(templates);
+        }
+
         [HttpPost]
         public IActionResult CreateTemplate() 
         {
@@ -31,15 +46,7 @@ namespace MemeBuilder.Controllers
             Context.Template.Add(template);
             Context.SaveChanges();
 
-            return Ok("Successfully created a template");
-        }
-
-        [HttpGet("{id:guid}")]
-        public IActionResult GetTemplate(Guid id)
-        {
-            var template = Context.Template.Find(id.ToString());
-
-            return Ok(template);
+            return Created("", "Succesfully saved a template");
         }
     }
 }

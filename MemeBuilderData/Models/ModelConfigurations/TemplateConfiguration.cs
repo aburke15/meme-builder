@@ -9,15 +9,15 @@ namespace MemeBuilderData.Models
         public void Configure(EntityTypeBuilder<Template> builder)
         {
             builder
-                .HasKey(prop => prop.Id);
+                .HasKey(p => p.Id);
 
             builder
-                .Property(prop => prop.CreatedOn)
-                .HasColumnType("DATETIME(2)")
+                .Property(p => p.CreatedOn)
+                .HasColumnType("TIMESTAMP(2)")
                 .IsRequired();
 
             builder
-                .Property(prop => prop.Description)
+                .Property(p => p.Description)
                 .HasMaxLength(100)
                 .IsRequired();
         }

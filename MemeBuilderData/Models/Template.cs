@@ -6,7 +6,7 @@ namespace MemeBuilderData.Models
         public Template()
             => CreatedOn = DateTime.UtcNow;
 
-        public DateTime CreatedOn { get; protected set; }
+        public DateTime CreatedOn { get; private set; }
 
         public string Description { get; set; }
     }

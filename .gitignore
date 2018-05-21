@@ -25,6 +25,7 @@ aclocal.m4
 install-sh
 autom4te.cache/
 *.vs
+*.vscode
 *.user
 *.tar.gz
 tarballs/
