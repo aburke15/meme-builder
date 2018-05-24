@@ -23,49 +23,50 @@ namespace MemeBuilderData.Implementations
         public IEnumerable<T> Get() 
             => MemeBuilderContext.Set<T>().ToList();
 
-        public async Task<IEnumerable<T>> GetAsync()
-        {
-            return await MemeBuilderContext.Set<T>().ToListAsync();
-        }
+        public async Task<IEnumerable<T>> GetAsync() 
+            => await MemeBuilderContext.Set<T>().ToListAsync();
 
-        public T GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+        public T GetById(Guid id) 
+            => MemeBuilderContext.Set<T>().Find(id);
 
-        public Task<T> GetByIdAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<T> GetByIdAsync(Guid id) 
+            => await MemeBuilderContext.Set<T>().FindAsync(id);
 
         public void Remove(Guid id)
         {
-            throw new NotImplementedException();
+            var type = MemeBuilderContext.Set<T>().Find(id);
+
+            if (type is null)
+            {
+                throw new InvalidOperationException(
+                    "Error, cannot delete a non existing entity."
+                );
+            } 
+
+            MemeBuilderContext.Remove(type);
         }
 
-        public Task RemoveAsync(Guid id)
+        public async Task RemoveAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var type = await MemeBuilderContext.Set<T>().FindAsync(id);
+
+            if (type is null)
+            {
+                throw new InvalidOperationException(
+                    "Error, cannot delete a non existing entity."
+                );
+            }
+            
+            MemeBuilderContext.Remove(type);
         }
 
-        public void Save(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        public void Save(T entity) 
+            => MemeBuilderContext.SaveChanges();
 
-        public Task SaveAsync(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task SaveAsync(T entity)
+            => await MemeBuilderContext.SaveChangesAsync();
 
-        public void Update(T entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        public void Update(T entity) 
+            => MemeBuilderContext.Set<T>().Attach(entity);
     }
 }

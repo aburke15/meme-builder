@@ -28,7 +28,5 @@ namespace MemeBuilderData.Interfaces
         Task SaveAsync(T entity);
 
         void Update(T entity);
-
-        Task UpdateAsync(T entity);
     }
 }
