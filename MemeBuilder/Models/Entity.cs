@@ -1,7 +1,7 @@
 ﻿using System;
-using MemeBuilderData.Infrastructure;
+using MemeBuilder.Infrastructure;
 
-namespace MemeBuilderData.Models
+namespace MemeBuilder.Models
 {
     public abstract class Entity
     {

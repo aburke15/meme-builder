@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MemeBuilderData.Infrastructure
+namespace MemeBuilder.Infrastructure
 {
     public static class GuidComb
     {

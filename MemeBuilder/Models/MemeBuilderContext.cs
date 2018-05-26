@@ -2,7 +2,7 @@
 using MemeBuilderData.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MemeBuilderData
+namespace MemeBuilder.Models
 {
     public class MemeBuilderContext : DbContext
     {
@@ -16,7 +16,5 @@ namespace MemeBuilderData
         }
 
         public DbSet<Template> Template { get; set; }
-
-
     }
 }

@@ -2,17 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MemeBuilder.Models;
 using MemeBuilderData.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace MemeBuilderData.Implementations
+namespace MemeBuilder.Implementations
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : UnitOfWorkFilter, IRepository<T> where T : class
     {
         private readonly MemeBuilderContext MemeBuilderContext;
 
-        public Repository(MemeBuilderContext memeBuilderContext) 
-            => MemeBuilderContext = memeBuilderContext;
+        public Repository(MemeBuilderContext memeBuilderContext)
+            : base(memeBuilderContext)
+        {
+            MemeBuilderContext = memeBuilderContext;
+        }
 
         public void Add(T entity) 
             => MemeBuilderContext.Set<T>().Add(entity);

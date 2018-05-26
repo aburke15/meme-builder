@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MemeBuilderData.Interfaces
+namespace MemeBuilder.Interfaces
 {
     public interface IRepository<T> where T : class
     {

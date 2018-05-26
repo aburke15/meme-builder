@@ -1,5 +1,6 @@
 ﻿using System;
-namespace MemeBuilderData.Models
+
+namespace MemeBuilder.Models
 {
     public class Template : Entity
     {

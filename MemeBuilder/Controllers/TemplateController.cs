@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MemeBuilder.Interfaces;
+using MemeBuilder.Models;
 using Microsoft.AspNetCore.Mvc;
-using MemeBuilderData;
-using MemeBuilderData.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,15 +14,15 @@ namespace MemeBuilder.Controllers
     [Produces("application/json")]
     public class TemplateController : Controller
     {
-        private readonly MemeBuilderContext Context;
+        private readonly ITemplateRepository TemplateRepository;
 
-        public TemplateController(MemeBuilderContext context) 
-            => Context = context;
+        public TemplateController(ITemplateRepository templateRepository) 
+            => TemplateRepository = templateRepository;
 
         [HttpGet("{id:guid}")]
         public IActionResult GetTemplate(Guid id)
         {
-            var template = Context.Template.Find(id);
+            var template = TemplateRepository.GetByIdAsync(id);
 
             return Ok(template);
         }
@@ -30,7 +30,7 @@ namespace MemeBuilder.Controllers
         [HttpGet]
         public IActionResult GetTemplates()
         {
-            var templates = Context.Template.ToList();
+            var templates = TemplateRepository.GetAsync();
 
             return Ok(templates);
         }
@@ -43,8 +43,7 @@ namespace MemeBuilder.Controllers
                 Description = "First meme template!"
             };
 
-            Context.Template.Add(template);
-            Context.SaveChanges();
+            TemplateRepository.Add(template);
 
             return Created("", "Succesfully saved a template");
         }

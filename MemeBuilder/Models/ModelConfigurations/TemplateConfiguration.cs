@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MemeBuilderData.Models
+namespace MemeBuilder.Models
 {
     public class TemplateConfiguration : IEntityTypeConfiguration<Template>
     {
