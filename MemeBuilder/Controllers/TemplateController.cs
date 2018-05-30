@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MemeBuilder.Implementations;
+using MemeBuilder.Infrastructure;
 using MemeBuilder.Interfaces;
 using MemeBuilder.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MemeBuilder.Controllers
 {
+    [UnitOfWorkAttribute]
     [Route("api/[controller]")]
     [Produces("application/json")]
     public class TemplateController : Controller

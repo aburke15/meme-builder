@@ -5,20 +5,17 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace MemeBuilder.Implementations
 {
-    public class UnitOfWorkFilter : IActionFilter
+    public class UnitOfWorkAttribute : ActionFilterAttribute
     {
         private readonly MemeBuilderContext MemeBuilderContext;
 
-        public UnitOfWorkFilter(MemeBuilderContext memeBuilderContext) 
-            => MemeBuilderContext = memeBuilderContext;
-
-        public void OnActionExecuted(ActionExecutedContext context)
+        public override void OnActionExecuted(ActionExecutedContext context)
         {
             // begin transaction
             MemeBuilderContext.Database.BeginTransaction();
         }
 
-        public void OnActionExecuting(ActionExecutingContext context)
+        public override void OnActionExecuting(ActionExecutingContext context)
         {
             // save
                 // commit transaction
