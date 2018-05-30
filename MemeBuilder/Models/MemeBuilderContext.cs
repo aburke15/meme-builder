@@ -1,5 +1,4 @@
 ﻿using System;
-using MemeBuilderData.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace MemeBuilder.Models

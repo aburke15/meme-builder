@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MemeBuilder.Interfaces;
 using MemeBuilder.Models;
-using MemeBuilderData.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace MemeBuilder.Implementations
