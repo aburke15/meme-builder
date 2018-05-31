@@ -5,20 +5,15 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace MemeBuilder.Implementations
 {
-    public class UnitOfWorkAttribute : ActionFilterAttribute
+    public class UnitOfWorkAttribute : Attribute, IActionFilter
     {
-        private readonly MemeBuilderContext MemeBuilderContext;
+        private readonly MemeBuilderContext MemeBuilderContext = new MemeBuilderContext();
 
-        public override void OnActionExecuted(ActionExecutedContext context)
-        {
-            // begin transaction
-            MemeBuilderContext.Database.BeginTransaction();
-        }
+        public void OnActionExecuted(ActionExecutedContext context) 
+            => MemeBuilderContext.Database.BeginTransaction();
 
-        public override void OnActionExecuting(ActionExecutingContext context)
+        public void OnActionExecuting(ActionExecutingContext context)
         {
-            // save
-                // commit transaction
             try
             {
                 MemeBuilderContext.SaveChangesAsync();
@@ -34,7 +29,6 @@ namespace MemeBuilder.Implementations
                 throw e;
             }
 
-            // dispose? EF diposes automatically?
             MemeBuilderContext.Dispose();
         }
     }

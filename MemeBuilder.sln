@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemeBuilder", "MemeBuilder\MemeBuilder.csproj", "{7BB39EDF-00F6-4B40-9212-5C0F31B62814}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemeBuilderData", "MemeBuilderData\MemeBuilderData.csproj", "{4A62352B-8971-478C-BD47-CEBDC7625BAA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

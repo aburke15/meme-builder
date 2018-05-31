@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MemeBuilder.Infrastructure
 {
-    [UnitOfWork]
     public abstract class BaseController : Controller
     {
         protected readonly MemeBuilderContext MemeBuilderContext;

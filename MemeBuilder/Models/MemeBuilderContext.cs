@@ -5,6 +5,9 @@ namespace MemeBuilder.Models
 {
     public class MemeBuilderContext : DbContext
     {
+        public MemeBuilderContext()
+        { }
+
         public MemeBuilderContext(DbContextOptions<MemeBuilderContext> options)
             : base(options)
         { }
